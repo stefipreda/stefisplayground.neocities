@@ -1,9 +1,244 @@
-/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --bg: #000000;
+  --ink: #f0f0f0;
+  --win-bg: #16181e;
+  --win-bg-2: #101117;
+  --win-hi: #3a3f4a;
+  --win-mid: #232733;
+  --win-lo: #05060a;
+  --win-shadow: #000000;
+  --neon-cyan: #00ffd1;
+  --neon-pink: #ff3bd4;
+  --neon-purple: #7c3bff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
 
 body {
-  background-color: ivory;
-  color: black;
-  font-family: Verdana;
+  margin: 0;
+  background: radial-gradient(circle at 15% 20%, rgba(0, 255, 209, 0.18), transparent 48%),
+              radial-gradient(circle at 80% 80%, rgba(255, 59, 212, 0.16), transparent 52%),
+              var(--bg);
+  color: #eaeaea;
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.desktop {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle cyberpunk desktop treatment (CRT scanlines + faint grid) */
+.desktop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  /* Tiny star element with lots of copies via box-shadow */
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    10vw 5vh rgba(255,255,255,0.8),
+    25vw 18vh rgba(255,255,255,0.9),
+    40vw 12vh rgba(255,255,255,0.7),
+    60vw 8vh rgba(255,255,255,0.95),
+    75vw 22vh rgba(255,255,255,0.85),
+    5vw 30vh rgba(255,255,255,0.7),
+    20vw 40vh rgba(255,255,255,0.9),
+    38vw 32vh rgba(255,255,255,0.8),
+    55vw 45vh rgba(255,255,255,0.9),
+    70vw 38vh rgba(255,255,255,0.75),
+    15vw 55vh rgba(255,255,255,0.9),
+    32vw 60vh rgba(255,255,255,0.85),
+    50vw 58vh rgba(255,255,255,0.9),
+    68vw 52vh rgba(255,255,255,0.8),
+    82vw 62vh rgba(255,255,255,0.9),
+    8vw 70vh rgba(255,255,255,0.8),
+    28vw 78vh rgba(255,255,255,0.9),
+    46vw 72vh rgba(255,255,255,0.75),
+    63vw 80vh rgba(255,255,255,0.9),
+    88vw 74vh rgba(255,255,255,0.85);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.desktop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.45;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Site header with title and description */
+.site-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.site-title {
+  font-family: "VT323", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 48px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  text-shadow:
+    0 0 12px rgba(0, 255, 209, 0.6),
+    0 0 24px rgba(0, 255, 209, 0.4),
+    0 0 36px rgba(255, 59, 212, 0.3);
+}
+
+.site-description {
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 8px rgba(0, 255, 209, 0.3),
+    0 0 16px rgba(255, 59, 212, 0.2);
+}
+
+/* Old-computer folder window (Win95-ish) */
+.folder-window {
+  width: min(520px, 92vw);
+  background: linear-gradient(180deg, var(--win-bg), var(--win-bg-2));
+  color: var(--ink);
+  border: 2px solid var(--win-shadow);
+  border-radius: 0;
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.25),
+    0 0 22px rgba(0, 255, 209, 0.20),
+    0 0 44px rgba(255, 59, 212, 0.12);
+  position: relative;
+  z-index: 1;
+}
+
+/* 3D bevel */
+.folder-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow:
+    inset 2px 2px 0 var(--win-hi),
+    inset -2px -2px 0 var(--win-lo),
+    inset 4px 4px 0 var(--win-mid),
+    inset -4px -4px 0 #5f5f5f;
+  pointer-events: none;
+}
+
+.folder-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border-bottom: 2px solid var(--win-shadow);
+  background: linear-gradient(90deg, #041b2d 0%, #102a43 35%, #2a0b3d 100%);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 18px rgba(124, 59, 255, 0.22);
+}
+
+.folder-title {
+  font-family: "VT323", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 26px;
+  letter-spacing: 0.8px;
+  color: #e9f7ff;
+  text-shadow:
+    0 0 10px rgba(0, 255, 209, 0.35),
+    0 0 18px rgba(255, 59, 212, 0.25);
+}
+
+.folder-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.folder-controls .btn {
+  width: 26px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--win-shadow);
+  border-radius: 0;
+  font-family: "VT323", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 20px;
+  line-height: 1;
+  background: var(--win-bg);
+  box-shadow:
+    inset 1px 1px 0 var(--win-hi),
+    inset -1px -1px 0 var(--win-lo);
+}
+
+.folder-body {
+  padding: 14px 12px 14px;
+}
+
+.folder-list {
+  display: grid;
+  gap: 2px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: "VT323", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 22px;
+  padding: 6px 8px;
+  border-radius: 0;
+}
+
+.row .icon {
+  font-size: 18px;
+  transform: translateY(1px);
+}
+
+.row:hover {
+  background: rgba(0, 255, 209, 0.12);
+}
+
+.row:focus-visible {
+  outline: 2px dotted #000;
+  outline-offset: -2px;
+  background: rgba(0, 255, 209, 0.18);
+}
+
+.row.file .name {
+  font-family: "VT323", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 22px;
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 420px) {
+  .folder-title { font-size: 24px; }
+  .row { font-size: 20px; }
 }

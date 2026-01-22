@@ -3,17 +3,48 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefi's Playground</title>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <title>stefania/</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <h1>Stefi's Playground</h1>
-    
-    <p> Never ending work in progress. </p
+    <main class="desktop" aria-label="Desktop">
+      <header class="site-header">
+        <h1 class="site-title">Stefi's Playground</h1>
+      </header>
+      <section class="folder-window" aria-label="Folder window">
+        <header class="folder-titlebar" aria-label="Folder title bar">
+          <div class="folder-title">stefania/</div>
+          <div class="folder-controls" aria-hidden="true">
+            <span class="btn" title="minimize">–</span>
+            <span class="btn" title="close">×</span>
+          </div>
+        </header>
 
-    <p>Powered by <a href="https://neocities.org">Neocities</a>.</p>
+        <div class="folder-body">
+          <nav class="folder-list" aria-label="Folder contents">
+            <a class="row" href="writing.html">
+              <span class="icon" aria-hidden="true">📁</span>
+              <span class="name">writing</span>
+            </a>
+            <a class="row" href="favourites.html">
+              <span class="icon" aria-hidden="true">📁</span>
+              <span class="name">favourites</span>
+            </a>
+            <a class="row" href="rough_ideas.html">
+              <span class="icon" aria-hidden="true">📁</span>
+              <span class="name">rough_ideas</span>
+            </a>
+            <a class="row" href="guestbook.html">
+              <span class="icon" aria-hidden="true">📁</span>
+              <span class="name">guestbook</span>
+            </a>
+            <a class="row file" href="README.html">
+              <span class="icon" aria-hidden="true">📄</span>
+              <span class="name">README.md</span>
+            </a>
+          </nav>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
