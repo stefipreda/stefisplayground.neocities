@@ -7,25 +7,11 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <main class="desktop">
-      <section class="folder-window">
-        <header class="folder-titlebar">
-          <div class="folder-title">not found/</div>
-          <div class="folder-controls" aria-hidden="true">
-            <span class="btn">–</span>
-            <a class="btn" href="index.html" style="text-decoration:none;color:inherit;">×</a>
-          </div>
-        </header>
-        <div class="folder-body">
-          <p style="font-family:'Patrick Hand', system-ui; font-size:22px; margin:0 0 12px;">
-            Page not found.
-          </p>
-          <a href="index.html" class="row" style="display:inline-grid; grid-template-columns:22px 1fr; width:max-content;">
-            <span class="icon" aria-hidden="true">↩</span>
-            <span class="name">go back home</span>
-          </a>
-        </div>
-      </section>
+    <main class="page" aria-label="not found">
+      <div class="page-inner">
+        <h1>Page not found</h1>
+        <p><a href="index.html">Go back home</a></p>
+      </div>
     </main>
   </body>
 </html>
