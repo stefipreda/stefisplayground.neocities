@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  cursor: url("photos/cursor-flower.png") 24 20, auto;
 }
 
 html,
@@ -12,30 +13,52 @@ body {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #ffffff;
+  background: #eef3df;
   color: #111111;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .home {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 100vh;
   width: 100%;
-  max-width: 520px;
-  padding: 24px 16px 32px;
+  gap: 16px;
+  padding: 16px;
   text-align: center;
 }
 
-.home-header {
-  margin-bottom: 32px;
+.col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
 }
 
-.home-title {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+.col-left,
+.col-right {
+  flex: 1 1 0%;
+  min-width: 56px;
+  justify-content: space-between;
+}
+
+.col-left {
+  align-items: flex-start;
+}
+
+.col-right {
+  align-items: flex-end;
+}
+
+.col-center {
+  position: relative;
+  flex: 1 1 560px;
+  max-width: 560px;
+  min-width: 240px;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-menu {
@@ -52,9 +75,13 @@ body {
 
 .menu-link img {
   display: block;
-  max-width: 260px;
-  width: min(70vw, 260px);
-  height: auto;
+  max-width: 100%;
+  height: clamp(40px, 9vw, 60px);
+  width: auto;
+}
+
+.menu-link img.menu-img-small {
+  height: clamp(28px, 6vw, 42px);
 }
 
 .menu-link:focus-visible {
@@ -62,12 +89,105 @@ body {
   outline-offset: 4px;
 }
 
+.home-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.footer-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer-link img {
+  display: block;
+  width: auto;
+  height: clamp(32px, 6vw, 46px);
+}
+
+.footer-link img.footer-icon-lg {
+  height: clamp(38px, 7.5vw, 54px);
+}
+
+.footer-link:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 4px;
+}
+
+.footer-arrow {
+  display: block;
+  width: auto;
+  height: clamp(12px, 2.5vw, 18px);
+}
+
+.footer-raised {
+  position: relative;
+  top: -8px;
+}
+
+.deco-flower {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90px;
+  pointer-events: none;
+}
+
+.deco-flower-1 {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.pebble-link,
+.flower-bee-link,
+.quartz-link {
+  display: inline-block;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pebble-link:focus-visible,
+.flower-bee-link:focus-visible,
+.quartz-link:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 4px;
+}
+
+.pebble {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(760px, 100%);
+  max-height: 44vh;
+}
+
+.flower-bee {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(560px, 100%);
+  max-height: 52vh;
+}
+
+.quartz {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(420px, 100%);
+  max-height: 36vh;
+}
+
 .page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
+  background: #eef3df;
   color: #111111;
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -76,6 +196,7 @@ body {
 .page-inner {
   padding: 24px 16px;
   text-align: center;
+  max-width: 700px;
 }
 
 .page-inner h1 {
@@ -87,4 +208,25 @@ body {
 .page-inner p {
   margin: 0;
   font-size: 0.95rem;
+}
+
+.page-inner p + p {
+  margin-top: 8px;
+}
+
+.research-figure {
+  margin: 24px 0 0;
+}
+
+.research-figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.research-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #444444;
 }
